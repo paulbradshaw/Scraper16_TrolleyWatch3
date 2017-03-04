@@ -29,12 +29,7 @@ def scrape_and_look_for_next_link(url):
     print html
     root = lxml.html.fromstring(html)
     scrape_table(root)
-    next_link = root.cssselect("a.next")
-    print next_link
-    if next_link:
-        next_url = urlparse.urljoin(base_url, next_link[0].attrib.get('href'))
-        print next_url
-        scrape_and_look_for_next_link(next_url)
+
 # START HERE: define your starting URL - then 
 # call a function to scrape the first page in the series.
 starting_url = 'http://inmo.ie/6022'
